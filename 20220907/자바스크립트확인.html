@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="inputText" value="문자">
+
+    <script>
+        console.log("hi");
+        // alert("hi");
+        console.log(`52+273=${325}`);
+        console.log("52+273="+(52+273));
+        console.log("52+273="+52+273); // 52273
+        // 문자열 실습
+        console.log("반갑습니다\n"+"\t홍길동입니다");
+        console.log(`100*273+23= ${100*273+23}`);
+        console.log("-----------------");
+        // bool 실습
+        console.log(5<=6);//true
+        console.log("안녕"!="hi"); // ture
+        console.log(true||false); // 하나라도 true면 true
+        console.log(false||true); // true
+        console.log(true&&false); // 둘다 안맞아서 false
+        console.log(!true&&false);// 둘다false라 false
+        !(true&&false); // 결과가 false니 반대로true
+
+        // 변수 실습
+        let name = "홍길동";
+        let age = 20;
+        let phone = "010-1234-5678";
+        name = "성춘향"; // 변수 변경
+        //-----------------------------------------
+        let hi = "hello world";
+        // hi = 'hello world'
+
+        let num1 = 215;
+        let num2 = 215;
+        // num1+num2 
+        // 430
+
+        /*isRain에 값을 할당*/
+        let currentHumidity = 70;
+        let rainHumidity = 65;
+        let isRain = currentHumidity > rainHumidity
+        // isRain = true
+
+
+        //연산자 실습1
+        // sumNum= sumNum +1을 복합대입연산자와 증감연산자로 포현하세요
+        let sumNum = 0;
+        sumNum += 1;
+        sumNum++;
+
+
+        //강제 자료형 변환
+        let num = 10;
+        let stringNum = String(num);
+        // stringNum = "10"
+        let plus = num+ Number(stringNum);
+        // plus = 20
+        Number("S"); // 숫자가아니라서 NaN이라고뜸
+        //typeof notNum : 변경은 시켯기떄문에 number 라고뜸
+
+        //자동 자료형 변환
+        console.log("더한값"+(20+20)); // 더한값40
+        console.log("더한값"+20+20); // 더한값2020 (문자열로바뀜)
+
+        // 상수와 리터럴
+        const a = 10;
+        // a = 11;  값 재설정 안됨X let var만 됨
+
+        //일치 연산자
+        "안녕" === "안녕" //true 자료형까지 모두 비교
+
+        // 특수 자료형 실습1
+        let num10 =10;
+        let text = ":숫자입니다";
+        typeof num10 // number
+        typeof num10 == 'number' // true
+        typeof text // string
+        typeof text == 'string' // true
+        let numText = num + text;
+        numText // 10 :숫자입니다 (문자형)
+        const MAX_WIDTH = 2;
+
+        //script 태그를 통해서 자바스크립트를 사용할 수 있다.
+        //script 태그는 body의 아래쪽에 작성
+        console.log("hi");// 브라우저의 콘솔창에 출력
+        alert("hi"); // 경고(알림)창으로 출력
+        document.write("<h1>hi</h1>"); // html 창에 출력
+
+
+        // 자바스크립트에서 입력받는 방법 - 콘솔에서입력x ★★
+        prompt("아무거나입력하세요"); // 알림창에ㅎㅇ입력하면 'ㅎㅇ'
+        let text1 = prompt("문자를 입력해주세요"); // 안녕하세요 입력
+        text1 // "안녕하세요"
+        // 태그에 작성된 id 값을 통해서 요소를 찾고 그 안의 value값을 가져옴 ★★
+        // value 값을 가지지않는 태그일 경우 undefined를 가져옴
+        let text2 = document.getElementById("inputText").value; // 문자
+        let text3= document.querySelector("#inputText").value; // 문자
+
+         //하나를 찾아줄땐 querySelector
+        document.querySelector("h1") // <h1>hi</h1> 찾아줌
+        document.write('<input type="text">') // 텍스트박스 생성
+        document.querySelector("input").value // text박스안에 입력한 value값 보여줌
+
+        // 태그 사이에 있는 값을 가져오고 싶을때 innerHTML 을 사용 ★★
+        // <p>{이 안의 값}</p>
+        let text4 = document.querySelector("h1").innerHTML; // text4 hi
+
+    </script>
+</body>
+</html>
