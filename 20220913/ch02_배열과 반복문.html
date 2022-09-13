@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 배열
+        let arr = [1,2,3];
+        arr
+        arr[1]; // 2
+        typeof arr //object
+
+        // 배열을 확인하는 방법
+        Array.isArray(arr);
+        arr instanceof Array
+
+        // 배열안에 다양한 자료형이 동시에 들어갈 수 있지만
+        // 하나의 자료형으로 통일해서 사용
+        let array = ["하나", "둘", "셋"];
+
+        // 배열인지 아닌지 확인하기 위해, Array.isArray, istanceof 사용
+        document.write(Array.isArray(array)? "배열입니다":"배열이아닙니다"); //true:false
+
+        // 이차원 배열
+        let numbers = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]];
+        numbers[0] // 1,2,3,4
+        numbers [0] [0] // 1
+
+        //for 반복문
+        for(let i =0; i<10; i++){
+            document.write(i);
+        }
+        // for문 안에서 let 으로 선언한 변수는 for문 안에서만 사용가능
+        //console.log(i)
+
+        //for 반복문 실습 
+        //10부터1까지 카운트다운
+        for(let i =10; i<0; i--){
+            document.write(i);
+        }
+        // 구구단 2단
+        for(let i=1; i<10; i++){
+            document.write(`<p>2 X ${i} = ${2*i}</p>`);
+        }
+        // for(let i =2; i<10; i++){
+        //     document.write(i+"단\n");
+        //     for(let j=1; j<10; j++){
+        //         document.write(i+"x"+j+"="+i*j+"\n");
+        //     }
+        // }
+    </script>
+</body>
+</html>

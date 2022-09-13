@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*if 조건문 실습*/
+        let check = true;
+        if(check == true){
+            document.write("확인하였습니다");
+        }
+        /*조건이 bool 표현식일 때, 맞는 단어를 입력했을 떄 let word =“의자” */
+        // let word = prompt("단어를입력해주세요");
+        let word = "의자";
+        if(word == "의자"){
+            document.write("맞습니다");
+        }
+        
+        // if else
+        if (false){
+            console.log("참")
+        }else{
+            console.log("거짓")
+        }
+
+        //if else 조건문 실습
+        // 변수 isCard 를 만들고 true/false를 할당한 후,
+        // 참이면 document.write를 사용하여 “버스를 타고 갑니다“
+        // 거짓이면 “걸어갑니다”를 출력
+
+        let money = 1600;
+        if(money>1500){
+            document.write("버스를 타고 갑니다");
+        }
+
+        let isCard = true;
+        if(isCard == true){
+            document.write("버스를타고갑니다");
+        }else{
+            document.write("걸어갑니다");
+        }
+        
+        // 중첩조건문
+        // if - else if 조건문 실습 미세먼지 판별하기
+        let dust = 130;
+        if(30>=dust){
+            document.write("좋음");
+        }else if(80>=dust){
+            document.write("보통");
+        }else if(150>=dust){
+            document.write("나쁨");
+        }else if(151<=dust){
+            document.write("매우나쁨");
+        }
+
+        //조건문 실습 할인율 구하기
+        let pay = prompt("구매한 가격을 입력하세요");
+        if(pay <= 50000){
+            console.log(`${pay*0.95}원(5%할인)`);
+        }else if(pay <= 100000){
+            console.log(`${pay*0.9}원(10%할인)`);
+        }else if(pay > 100000){
+            console.log(`${pay*0.8}원(20%할인)`);
+        }
+         // + 홀짝구하기
+        let value = prompt("정수를 입력하시오");
+        if(value % 2 == 0){
+            console.log("짝수");
+        }else if(value % 2 == 1){
+            console.log("홀수");
+        }
+    </script>
+</body>
+</html>
