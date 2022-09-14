@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // while문
+        let a =0;
+        while(10<a){
+            document.write(a); // 0~9
+            a++
+        }
+        // 값을 받아와서 반복하는 while
+        let word = prompt("나무를 영어로 입력하시오");
+        while(word !="tree"){
+            word = prompt("다시 나무를 영어로 입력하시오");
+        }
+        document.write("맞췄습니다.");
+
+        // while문 실습
+        let num = prompt("10+10=?");
+        while(num != "20"){
+            num = prompt("10+10=?");
+        }
+        document.write("맞췄습니다.");
+
+        //while문 실습
+        let num1 = prompt("0을 입력하면 입력한 모든 수를 더합니다");
+        let avg4 = 0;
+        while(num1 != "0"){
+            if(!isNaN(Number(num1))){  // 숫자가아닌거쓰면 작동x / Number(num1)에서 숫자형으로 바꿈
+                avg4+=Number(num1);     // 그냥 (Number(num1)해도 작동은됨 !isNaN을해줘서 숫자외에 작동x
+            }
+            num1 = prompt("0을 입력하면 입력한 모든 수를 더합니다");
+        }
+        alert(avg4)
+
+        //do while문
+        let b= 0;
+        do{ // 조건이 안맞아도 한번은 무조건 실행됨
+            document.write(b)
+            b++
+        }while(b<0)
+
+        // 값을 여러번 입력받을때, do while 을 사용하면 한번은 반드시 입력받을 수 있다.
+        let num2;
+        while(isNaN(num2)){ // num2값이 숫자가 아닐때반복
+            num2 = prompt("숫자를 입력하세요");
+        }
+        alert(num2); // 숫자입력받으면 끝
+
+        //do while문 실습
+        // 비밀번호를 맞출때까지 반복
+        // 시도횟수 출력
+        let user;
+        let count = 0;
+        let pw = "green";
+        do{
+            user = prompt("비밀번호를 입력하세요");
+            count++;
+        }while(pw != user && count < 5)
+        alert(`${count}번 시도`);
+
+
+        // break문
+        let c = 0;
+        while(true){
+            document.write("무한반복중입니다");
+            c++;
+            if(c>10){
+                break; // 특정 조건으로 무한반복 탈출
+            }
+        }
+        // continue문
+        for(let i=1; i<=10; i++){
+            if (i %2 == 1){
+            continue; // if실행된거만 건너뛰고 출력(홀수뺴고 출력)
+            }
+            document.write(`<p>${i}</p>`);
+        }
+        // break문과 continue문 실습
+        let s = 0;
+        while(true){
+            s++;
+            if(s>10){
+                break;
+            }
+            document.write(s);
+        }
+
+        for(let i=1; i<=10; i++){
+            if(i % 3 ==0){
+                continue;
+            }
+            document.write(`<p>${i}</p>`);
+        }
+    </script>
+</body>
+</html>
