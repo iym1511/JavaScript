@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 중첩함수 > 함수 안에 함수가 들어가있는 형태
+        function f(){
+            let value = 123; // 함수안에있는 변수를 사용
+            // 함수안에있는 함수는 호이스팅 되지않고 함수 안에서만 사용할 수 있다
+            function g(){
+                alert(value);
+            }
+            g(); // f()함수 안에서 호출
+             // 함수가 안에하나 더있으면 안에것도 호출해줘야 통으로 호출됨
+        }
+        // 중첩함수를 실행하기위해 감싸고 있는 함수 호출
+        f();
+        // g(); // 함수안에 있는 함수는 호출할수 없다.
+
+        //중첩 함수 실습1
+        function add(a,b){
+            let sum = a+b;
+            function printNum(){
+                document.write(sum);
+            }
+            printNum();
+        }
+        add(5,6)
+
+
+
+        // 클로저 함수 - 중첩함수의 하나로 외부 변수에 접근하는 함수
+        function count(){
+            let count =0;
+            return function () { // 클로저 함수 (그냥함수는 한번실행하고 끝남)
+                return count += 1; // 카운트는 클로저함수로만 증가
+            }
+        }
+        // 외부로 호출하기위한 함수 - count() 함수 한 번 호출 !
+        let startCount = count();
+        // startCount로 클로저 함수를 부름 ★
+        // startCount(); // 콘솔 줄때마다 1씩 증가 !
+        // startCount로 클로저 함수 호출
+        document.write(startCount()); // 1
+
+        // 클로저함수가 없는 함수 - 호출할때 마다 초기화
+        function noCount(){
+            let count=0;
+            return count+=1; // 실행되고 사라지고 반복 +1실행후 사라지고 반복
+        }
+
+        // 입력받은 숫자값을 더해주는 클로저 함수
+        function sumClosure(){
+            let sum = 0; 
+            return function(num) { // 클로저 함수
+                return sum+=num;
+            }
+        }
+        // sumClosure 함수 실행
+        // return에 넣어준 클로저 함수 startSum에 할당
+        let startSum = sumClosure();
+        document.write(`<p>${startSum(3)}</p>`); // 3
+        document.write(`<p>${startSum(5)}</p>`); // 8
+
+        // 클로저 함수를 이용하여,
+        // 넣은 값을 계속해서 곱하는 함수를 만드세요
+        // multiClosures() / startMulti
+        function multiClosures(){ 
+            let multi = 1;
+            return function (num){
+                return multi*=num
+            }
+        }
+        let startMulti = multiClosures(); 
+        document.write(startMulti(3)); // 3
+        document.write("<br>"+startMulti(6)); // 18
+
+        // 화살표 함수 버전
+        multiClosures2 = () => {
+            let multi =1;
+            return (num) => {
+                return multi*=num
+            }
+        }
+        let startMulti2 = multiClosures2();
+        document.write(startMulti2(4));
+        document.write(startMulti2(2));
+
+    </script>
+</body>
+</html>
