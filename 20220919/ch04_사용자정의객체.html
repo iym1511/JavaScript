@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 리터럴 표기를 이용한 객체의 생성
+        let puppy = {
+            // 속성
+            name : "초코",
+            // 메소드
+            eat : () => {
+                document.write("<p>밥을 먹습니다.</p>");
+            },
+            run : () => {
+                document.write("<p>달립니다.</p>");
+            }
+        }
+        puppy.eat(); // 메소드 출력
+        puppy.run(); // 메소드 출력 
+        puppy.name // 속성 출력 ('초코')
+
+        //리터럴 표기를 이용한 객체 생성 실습1
+        let person = {
+            name: "홍길동",
+            address: "부산",
+            intro : function() { // 화살표함수로하니 안됬음
+                return `${person.name}입니다. ${this.address}에 거주중 입니다.`;
+            } // person 이나 this로 접근가능
+        }
+        person.name;//홍길동
+        person.address;//부산
+        person.intro();
+        
+
+        // 리터럴 표기를 이용한 객체  생성 실습2
+        //객체 속성에 접근해서 바로 값을 할당할수 있다
+        //객체 속성을 바꾼 후 메소드를 출력해서 확인.
+        let myCookie = {
+            shape : "원",
+            flavor:"초코",
+            intro : function() {
+                return `${this.shape}모양의${this.flavor}맛입니다`;
+            }
+        }
+        myCookie.shape = "세모"; // 안의 내용을 변경하는 호출어
+        myCookie.flavor = "바나나";
+        myCookie.intro();
+
+
+
+
+        // new Object() 함수를 이용한 객체 생성
+        let tree = new Object();
+        tree.kind = "은행나무";
+        tree.light = function () {
+            document.write(`<p>${tree.kind}가 광합성을 합니다.</p>`);
+        }
+
+        // new Object() 함수를 이용한 객체의 생성 실습 1
+        let myBook = new Object();
+        myBook.title = "어린왕자";
+        myBook.price = 6000;
+        myBook.intro = function(){
+            document.write(`${myBook.title}입니다.${myBook.price}입니다.`);
+        }
+        myBook.discount = function(){
+            // return `${(myBook.price -= 600)}`
+            myBook.price *= 0.9; // 10% 할인
+        }
+
+        // new Object() 함수를 이용한 객체의 생성 실습2
+        // 현재의 금액에서 물건의 금액을 뺀 값을 저장
+        // + 물건의 금액이 money보다 크다면 “물건을 살수없다” 문자열 리턴
+
+        let myWallet = new Object();
+        myWallet.owner = "문일윤";
+        myWallet.money = 10000;
+        myWallet.show = function(){
+            return `현재${myWallet.money}원 남았습니다.`; // 문자열 반환
+        }
+        myWallet.buy = function(pay){
+            if(myWallet.money>pay){ // 저장된 금액이 입력된값보다 크면 금액차감
+                myWallet.money -= pay;
+            }else if(myWallet.money<pay){ // 저장된 금액이 입력된값보다 작으면 물건구매x
+                return "물건을 살수 없다."; // 문자열 반환
+            }
+        }
+        myWallet.input=function(pay){ // 금액을 추가
+            myWallet.money+=pay;
+        }
+        myWallet.buy(3000); // money차감
+        myWallet.show(); // 현재 6000원 남았습니다.
+        myWallet.input(5000); // money증가
+        myWallet.show(); // 현재 11000원 남았습니다
+
+        // 생성자 함수를 통해서 객체를 작성하는 방법
+        function Dog(name, age){
+            this.name = name;
+            this.age = age;
+            this.print = function(){
+                document.write(`<p>${this.name}입니다</p>`);
+            }
+        } // 객체안만들어짐
+
+        // 값을 가진 객체 생성 (객체만들어짐)
+        let myPuppy = new Dog("백구",1);
+
+
+        
+        // 생성자 함수를 이용한 객체의 생성 실습 1
+        function Student(name,score){
+            // 객체 속성
+            this.name = name;
+            this.score = score;
+            // 객체 메소드
+            this.study = function(){
+                this.score+=10; // score에 10+ 저장됨
+            }
+            this.showScore = function(){
+                return this.score // score에 점수 확인
+            }
+        }
+        //객체 생성
+        let myStudent = new Student("문일윤", 80);
+        let yourStudent = new Student("홍길동",70);
+        // 객체 실행
+        myStudent.study(); // 10증가
+        myStudent.showScore(); // 문일윤 ,90
+
+
+
+        // 생성자 함수를 이용한 객체의 생성 실습 2
+        function BusCard(money){
+            // 객체 속성
+            this.money = money;
+            // 객체 메소드
+            this.charge = function(money){
+                this.money += money;
+            } 
+            this.takeBus = function(){
+                if(this.money >= 1500){
+                    this.money-=1500
+                }else if(this.money<1500){
+                    return "잔액이 부족합니다.";
+                }
+                this.showMoney = function(){
+                    return this.money
+                }
+            }
+        }
+        //객체 생성
+        let myBusCard = new BusCard(1500);
+        let yourBusCard = new BusCard(1000);
+        // 객체 실행
+        myBusCard.charge(3000); // 3000원충전
+        myBusCard.takeBus(); // 1500원 차감후 저장 -= // 부족하면 잔액부족 출력
+        myBusCard.showMoney(); // takeBus에서 차감된 금액을 보여줌
+
+
+
+        // 생성자 함수를 이용한 객체의 생성 실습 3
+        function Messege(name,content,time){
+            // 객체 속성
+            this.name = name;
+            this.content = content;
+            this.time = time;
+            // 객체 메소드
+            this.modifyMessege = function(messege){
+                this.content = messege;
+            }
+            this.showMessege = function(){
+                return `${this.name} 님께서${this.content} 를${this.time} 에 보냈습니다`
+            }
+        }
+        //객체 생성
+        let myMessege = new Messege("문일윤","반갑습니다","02:24");
+        let yourMessege = new Messege("홍길동","안녕하세요","02:24");
+        // 객체 실행
+        myMessege.modifyMessege("수정된 메시지"); // 가운데 기존내용을 변경하고 출력
+        myMessege.showMessege(); // '문일윤 님께서 하이빵가루 를02:24 에 보냈습니다.'
+    </script>
+</body>
+</html>
