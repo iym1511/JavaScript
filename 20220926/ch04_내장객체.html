@@ -34,9 +34,11 @@
 
         // filter  > 콜백함수와 return값이 true 이면 요소값을 return 하여 새로운 배열을 만듦
         let filterNumber = numbers.filter(function(item, index){
-            return item>3
+            return item > 3 ;
         })
         console.log(filterNumber); // [4,5]
+
+
 
         // Array 객체 실습
         let NumArray = [3,6,7,2,7,3,1];
@@ -44,9 +46,9 @@
 
         // pop배열의 마지막 요소 삭제
         let flowerArray = ["튤립","장미","국화"];
-        console.log(flowerArray.pop());
-        console.log(flowerArray.pop());
-        console.log(flowerArray.pop());
+        console.log(flowerArray.pop()); // 국화
+        console.log(flowerArray.pop()); // 장미
+        console.log(flowerArray.pop()); // 튤립
     </script>
 </body>
 </html>

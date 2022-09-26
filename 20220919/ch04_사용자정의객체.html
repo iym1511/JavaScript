@@ -229,10 +229,11 @@
             }
             this.confirm = function(){
                 let s = ""
+                // for in 반복문 : 객체의 모든 열거 가능한 속성에 대해 반복
                 for(let x in this) {
                     // 함수부분은 제외하기위함
-                    // 함수부분만 패쓰(continue)하고 나머지 출력
-                    if( typeof this[x] == "function"){
+                    // 함수부분만 패스(continue)하고 나머지 출력 != 도 사용가능
+                    if(typeof this[x] == "function"){
                         continue;
                     }
                     s+= x+":"+this[x]+"\n";
@@ -248,10 +249,10 @@
         let count = 0;
         let charts = [];
         charts[count] = new AnimalChart("성춘향","고양이", "hi");
-        count ++;
+        count++;
 
-        charts[0].confirm();
         console.log(charts[0].confirm());
+        console.log(count);
     </script>
 </body>
 </html>
