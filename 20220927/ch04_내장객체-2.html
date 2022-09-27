@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // String 객체
+    let word = "글자입니다."
+    let word2 = word.concat("추가된 글자입니다");
+    console.log(word2);
+
+    let matchWord = word.match("안녕");
+    console.log(matchWord); // null
+
+    let searchWord = word.search("안녕")
+    console.log(searchWord); // -1
+
+    // 글자였던 부분이 안녕으로 바뀜
+    let replaceWord = word2.replace(/글자/g,"안녕");
+    console.log(replaceWord); // 안녕입니다. 추가된 글자입니다
+
+    //String 객체 실습
+    // 이름의 가운데 글자 * 로 바꿔넣기
+    let Name = "홍길동";
+    let center = Name.charAt(1);
+    let replaceName = Name.replace(center,"*");
+    console.log(replaceName); // 홍*동
+
+    // 글자를 잘라서 넣는 방법
+    // for 첫글자와 마지막 글자를 제외하고 전부 *로 넣기
+    for (let i=0; i<Name.length; i++){
+        console.log(Name.charAt(i)); // 세로로 홍 길 동
+    }
+
+
+    // ★Date객체★
+    let today = new Date(); // 실행된 그 날짜 시간을 가져옴
+    console.log(today.getDate()); // 현재 일 생성
+    console.log(today.getTime()); // ms 로 현재시간 생성 / 값 두개를 빼서 걸린 시간 확인 으로 쓰임
+    console.log(today.getSeconds()); // 현재 초 생성
+
+    let startTime = today.getTime();
+    for(let i =0; i<10; i++){
+        document.write(i);
+    }
+    let day = new Date();
+    let endTime = day.getTime();
+    console.log("걸린시간"+(endTime-startTime));
+
+
+    console.log("-----------------------------------------------------------------------------");
+
+    // Date 객체 실습
+    let today2 = new Date();
+    console.log(`${today2.getFullYear()}년${today2.getMonth()+1}월${today2.getDate()}일`);
+    console.log(today2.getHours()+"시"+today2.getMinutes()+"분"+today2.getSeconds()+"초");
+    
+
+    // Math 객체
+    // 객체를 생성하지않고 바로 사용
+    let randomNum = Math.floor(Math.random()*10)+1;  // 1부터 10까지의 랜덤 값
+    console.log(randomNum);
+
+    // Math객체 실습 반지름 넓이 구하기
+    // round 반올림한 정수
+    console.log(Math.round(3*3*Math.PI));
+
+
+    </script> 
+</body>
+</html>
