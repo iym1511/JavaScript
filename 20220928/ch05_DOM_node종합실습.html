@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>
+    <h1>수정하기 전 제목입니다</h1>
+    <ul>
+        <li>첫번재 내용입니다</li>
+        <li>두번재 내용입니다</li>
+        <li>세번재 내용입니다</li>
+        <li>네번재 내용입니다</li>
+    </ul>
+    <ol>
+        <li>첫번재 내용입니다</li>
+        <li>두번재 내용입니다</li>
+        <li>세번재 내용입니다</li>
+        <li>네번재 내용입니다</li>
+    </ol>
+    <div class="main">
+    <p class="p"><span>빈 공간</span>입니다.</p>
+    </div>
+    <div class="footer">
+        <p>푸터영역 입니다.</p>
+    </div>
+    <script>
+        // //종합 실습
+        // let h1Tag = document.querySelector("h1");
+        // h1Tag.textContent = "DOM 이용한 수정"
+        // h1Tag.style.backgroundColor = "gray"
+        // h1Tag.style.color = "blue"
+
+        // let ulTag = document.querySelector("ul");
+
+        // let ulliElement = document.createElement("li");
+        // ulliElement.textContent = "새로 추가한 노드요소입니다." // innerHtml
+        // ulTag.removeChild(ulTag.firstElementChild);
+        // ulTag.appendChild(ulliElement);
+
+        // let olTag = document.querySelector("ol");
+        // olTag.firstElementChild.nextElementSibling;
+        // olTag.firstElementChild.nextElementSibling.remove();
+        // olTag.firstElementChild.innerHTML = "내용을 바꾸었습니다.";
+        // olTag.lastElementChild.remove(); 
+
+
+        // // let pTag = document.querySelector("p");
+        // // let spanTag = document.querySelector("span");
+        // // spanTag.style.color = "red"
+        // document.querySelector("p span").style.color = "red"
+        // let body = document.querySelector("body");
+        // body.append(document.querySelector("p").cloneNode(true));
+        // body.append(document.querySelector("p").cloneNode(true));.
+
+
+        const h1Tag = document.querySelector("h1")
+        h1Tag.textContent="DOM을 이용한 수정"
+        h1Tag.style.backgroundColor = "gray"
+        h1Tag.style.color = "blue"
+        // setAttribute를 이용해서 값을 수정하면 style의 전체 값을 수정
+        h1Tag.setAttribute("style","color:green; background-color: orange") 
+
+
+        const ulTag = document.querySelector("ul");
+        // 노드 생성
+        const li = document.querySelector("li");
+        li.innerHTML = "새로추가한 노드입니다"
+        //노드 추가
+        ulTag.append(li);
+
+        const olTag = document.querySelector("ol");
+        // first와 last를 이용한 자식찾기
+        olTag.firstElementChild.nextElementSibling.remove(); // 두번째li 삭제
+        // children 배열을 통한 자식찾기 /마지막꺼 삭제
+        olTag.children[2].remove(); 
+        olTag.firstElementChild.innerHTML = "내용을 바꾸었습니다.";
+
+        const spanTag = document.querySelector("p span");
+        spanTag.style.color = "red";
+
+        const main = document.querySelector(".main");
+        main.append(spanTag.parentElement.cloneNode(true));
+        main.append(spanTag.parentElement.cloneNode(true));
+    </script>
+</body>
+</html>

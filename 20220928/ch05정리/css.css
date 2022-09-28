@@ -1,0 +1,14 @@
+.header h1{
+    color: midnightblue;
+}
+.header h1.on{ /* 태그에 css연결되게 해줌 */
+    background-color: bisque;
+}
+.main ul{
+    list-style: none;
+    display: flex;
+    color: purple;
+}
+.main ul li::after{
+    content: " |"
+}
