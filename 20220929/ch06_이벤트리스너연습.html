@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">반갑습니다.</h1>
+    <label for="">이름</label>
+    <input type="text" id="name">
+    <button id="button">확인</button>
+    <p id="count"></p>
+    <script>
+        // 버튼을 눌렀을때,
+        // input값을 가져와서 h1태그에 OOO님 반갑습니다로 출력하기
+        // 버튼을 누를때마다 변수값을 1씩 올려서 0회 입장했습니다.
+
+        // 버튼 눌럿을떄 실행되는 함수를 가져옴 
+        const button = document.querySelector("#button");
+        button.addEventListener("click",printName);
+         //전역변수/ 함수전체 실행할때마다 계산할려면 함수밖으로
+        let numCount = 0;
+
+        function printName(){
+            const input = document.querySelector("#name");
+            const title = document.querySelector("#title");
+            const count = document.querySelector("#count");
+            // input의 value값을 가져와서 title에 넣기
+            title.innerHTML = input.value+"님 반갑습니다.";
+
+            // count 값을 1씩 증가시키기
+            numCount++;
+            count.innerHTML = numCount + "회 입장했습니다"
+        }
+    </script>
+</body>
+</html>

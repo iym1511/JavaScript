@@ -56,6 +56,7 @@
         // body.append(document.querySelector("p").cloneNode(true));.
 
 
+        //innerHtml = textContent
         const h1Tag = document.querySelector("h1")
         h1Tag.textContent="DOM을 이용한 수정"
         h1Tag.style.backgroundColor = "gray"
@@ -67,7 +68,7 @@
         const ulTag = document.querySelector("ul");
         // 노드 생성
         const li = document.querySelector("li");
-        li.innerHTML = "새로추가한 노드입니다"
+        li.textContent = "새로추가한 노드입니다"
         //노드 추가
         ulTag.append(li);
 

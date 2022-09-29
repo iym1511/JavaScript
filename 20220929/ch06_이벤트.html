@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p onclick="alert('문자열을 클릭했어요')">
+        <input type="button" value="버튼">
+    </p>
+    <p onclick="testFunc()">사용자함수가 실행됩니다. 클릭해주세요.</p>
+    <p>HTML 이벤트 속성으로 이벤트핸들러함수를 넣어줄때,
+        "함수이름()" 형태로 넣어서 사용할수 있다
+        이때, 인수값을 넣어줄때 문자열일 경우 ''사용하여 ""가 겹치지않게 주의 
+    </p>
+
+
+    <input type="text" id="text" value="">
+    <!--disabled 하면 input타입들 비활성화-->
+    <input type="checkbox" name="" id="checkbox">체크헤제:false | 체크:true
+
+
+    <br><br><br>
+
+    <!--★ 요소의 속성으로 등록하는 방법 실습 1,2 ● ★-->
+    <p>값을 넣어주세요</p>
+        <input type="text" id="inputtext" onfocus="focusBackground()" onblur="blurBackground()"> <!-- onchange="input()" 값이 바뀔때마다 즉각 출력 -->
+        <button onclick="input()">확인</button>
+    <p class="textshow"></p>
+
+
+
+    <script>
+        // 내용 : 확인하시겠습니까?
+        // comfirm을 사용하여 예 일경우 alert창에 확인을 출력
+        // 아니요 일경우 : 취소했습니다를 콘솔에 출력
+        function testFunc() {
+            if(confirm("확인하시겠습니까?")){ // confirm에 true false가 다 있어서 넣기만해도 구분
+                alert('확인');
+            }else{
+                console.log("취소했습니다.");
+            }
+        }
+
+        // onload이벤트
+        window.onload = function () {
+            console.log("윈도우가 로드되었습니다");
+        }
+
+
+        //요소의 속성으로 등록하는 방법 실습 1 ●
+        // inputText값 버튼으로 p태그에 출력하기 ★★
+        function input(){
+            const text = document.querySelector("#inputtext").value;
+            // let textValue = text.value;
+            document.querySelector(".textshow").innerHTML = text;
+            // let textHtml = textValue
+        }
+
+        // 요소의 속성으로 등록하는 방법 실습 2 ●
+        // inputText 클릭하면 배경색 바꾸기 ★★
+        function focusBackground(){
+            document.querySelector("#inputtext").style.backgroundColor = "gray";
+        }
+        function blurBackground(){
+            document.querySelector("#inputtext").style.backgroundColor = "white";
+        }
+    </script>
+</body>
+</html>
