@@ -8,7 +8,9 @@
     list-style:none;
     font-family: 'KOTRAHOPE';
 }
-
+body{
+    margin: 0px;
+}
 .hidden {
     display: none;
 }

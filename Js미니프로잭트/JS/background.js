@@ -15,3 +15,4 @@ bodyBackground.style.background = `url(./img/${choseImage})`
 bodyBackground.style.backgroundSize = "cover" 
 bodyBackground.style.backgroundRepeat = "no-repeat"
 bodyBackground.style.position = "center"  
+bodyBackground.style.height = "874px"
